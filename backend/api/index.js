@@ -17,6 +17,7 @@ let client = new MongoClient(url
         deprecationErrors: true,
       }
     });
+
 const dbName = 'PassKeeper';
 
 client.connect();
@@ -25,10 +26,7 @@ app.use(cors())
 // Database Name
 
 app.get('/', async (req, res) => {
-    const db = client.db(dbName);
-    const collection = db.collection('Users');
-    const findResult = await collection.find({}).toArray();
-    res.send(findResult)
+    res.send("Hello")
 })
 
 app.post('/getUserDataDemo', async (req, res) => {
