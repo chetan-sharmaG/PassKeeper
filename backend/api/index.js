@@ -8,6 +8,7 @@ const { ObjectId } = require('mongodb');
 
 app.use(bodyparser.json())
 //connection to db
+console.error(process.env.MONGO_URI)
 const url = process.env.MONGO_URI;
 let client = new MongoClient(url
     , {
