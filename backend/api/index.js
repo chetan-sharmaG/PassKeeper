@@ -20,8 +20,15 @@ let client = new MongoClient(url
 
 const dbName = 'PassKeeper';
 
-client.connect();
-
+async function connectToDb() {
+    try {
+      await client.connect();
+      console.log('Connected to MongoDB');
+    } catch (error) {
+      console.error('Error connecting to MongoDB:', error);
+    }
+  }
+connectToDb()
 app.use(cors())
 // Database Name
 
