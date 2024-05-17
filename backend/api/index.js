@@ -6,10 +6,13 @@ const bodyparser = require('body-parser')
 const cors = require('cors')
 const { ObjectId } = require('mongodb');
 
+
 app.use(bodyparser.json())
+app.use(cors())
 //connection to db
 console.error(process.env.MONGO_URI)
 const url = process.env.MONGO_URI;
+
 let client = new MongoClient(url
     , {
       serverApi: {
@@ -30,7 +33,7 @@ async function connectToDb() {
     }
   }
 connectToDb()
-app.use(cors())
+
 // Database Name
 
 app.get('/', async (req, res) => {
