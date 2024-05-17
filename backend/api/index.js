@@ -106,6 +106,21 @@ app.post('/deleteData', async (req, res) => {
     const DeleteDataData = await collection.deleteOne(pass)
     res.send({ success: true, message: DeleteDataData })
 })
+
+app.post('/syncData',async (req,res)=>{
+    const body = req.body
+    const db = client.db(dbName);
+    const collection = db.collection(body.token);
+    const filter = {}; // Since you have only one document, you don't need a filter
+    const update = {
+        $push: {
+            data: body
+        }
+    };
+    const insertData = await collection.updateMany(filter, update, { upsert: true });
+    res.send({ success: true, result: insertData })
+
+})
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
