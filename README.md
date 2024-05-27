@@ -25,6 +25,11 @@ Before running this application, make sure you have:
 - Node.js installed (version 12.x or later)
 - npm or Yarn as your package manager
 
+### Tech and Tools used
+-React.js
+-Express.js 
+-Tailwind css
+
 ### Running the application
 
 This project is bootstrapped with [Vite](https://vitejs.dev/). To get the application up and running, follow these steps:
